@@ -1,0 +1,22 @@
+table tr td {
+  border: 1px solid black;
+}
+
+.submitted {
+  color: green;
+}
+
+.nonsubmitted {
+  color: red;
+  border: 2px dashed red;
+  background-color: yellow;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnAjout {
+  align-self: flex-end;
+}

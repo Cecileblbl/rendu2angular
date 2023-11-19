@@ -1,0 +1,21 @@
+form {
+  background-color: #ffffff;
+  color: #00008b;
+  padding: 20px;
+}
+
+form input,
+form button {
+  color: #00008b; /* Dark blue */
+}
+
+form button {
+  background-color: #40e0d0; /* Turquoise */
+  color: #ffffff; /* White */
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ffffff; /* White */
+  color: #00008b; /* Dark blue */
+}
