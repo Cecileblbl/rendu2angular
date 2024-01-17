@@ -24,6 +24,11 @@ J'ai voulu faire une template qui affiche le log out si l'utilisateur est logged
   - Le user peut voir le détail des assignment
   - Si on n'est pas logué on ne peut ni voir le détail, ni éditer
 
-[^1]: à remplir
-[^2]: à remplir
-[^3]: vous pouvez cocher les tâches qui ont été faites en utilisant la syntaxe `[x]` dans le markdown
+Les users definis:
+users = [
+{ username: 'user1', password: 'password1', role: 'user' },
+{ username: 'admin1', password: 'password2', role: 'admin' },
+{ username: 'user2', password: 'password3', role: 'user' },
+{ username: 'admin2', password: 'password4', role: 'admin' },
+{ username: 'user3', password: 'password5', role: 'user' },
+];
