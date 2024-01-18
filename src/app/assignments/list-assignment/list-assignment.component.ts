@@ -3,6 +3,7 @@ import { Assignment } from '../assignment.model';
 import { AssignmentService } from 'src/app/shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-list-assignment',
@@ -17,7 +18,8 @@ export class ListAssignmentComponent {
   assignments?: Assignment[];
   constructor(
     private assignmentService: AssignmentService,
-    private authService: AuthService
+    public authService: AuthService,
+    private router: Router
   ) {}
 
   formVisible = false;
@@ -30,6 +32,8 @@ export class ListAssignmentComponent {
     this.assignmentService
       .getAssignments()
       .subscribe((assignments) => (this.assignments = assignments));
+
+    console.log(this.isLoggedin());
   }
 
   getAssignments() {
@@ -48,5 +52,16 @@ export class ListAssignmentComponent {
   }
   isLoggedin() {
     return this.authService.isLoggedIn();
+  }
+  detailsAssignment(a: Assignment) {
+    this.selectedAssignment = a;
+    if (this.isLoggedin()) {
+      console.log('detailsAssignment logged in ', a);
+      this.router.navigate(['/assignment', a.id]);
+    } else {
+      this.router.navigate(['/login']);
+      console.log('detailsAssignment not logged in ', a);
+    }
+    console.log('detailsAssignment', a);
   }
 }

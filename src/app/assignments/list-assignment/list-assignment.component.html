@@ -1,28 +1,14 @@
 <h3>Liste des devoirs :</h3>
-<ng-template ngIf="isLoggedIn(); else notLogged">
-  <mat-list *ngFor="let a of assignments">
-    <nav>
-      <a routerLink="/assignment/{{ a.id }}">
-        {{ a.name }}
-        <h3 mat-subheader>{{ a.dueDate | date }}</h3>
-        <mat-list-item (click)="assignmentClique(a)">
-          <p *ngIf="a.submitted" appsubmitted>{{ a.name }} was submitted.</p>
-          <p *ngIf="!a.submitted" appNonsubmitted>
-            {{ a.name }}, Has not been submitted.
-          </p>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-      </a>
-    </nav>
-  </mat-list>
-</ng-template>
-<ng-template #notLogged>
+<div>
   <mat-list *ngFor="let a of assignments">
     <nav>
       <a>
         {{ a.name }}
         <h3 mat-subheader>{{ a.dueDate | date }}</h3>
-        <mat-list-item (click)="assignmentClique(a)">
+        <mat-list-item
+          (click)="assignmentClique(a)"
+          (click)="detailsAssignment(a)"
+        >
           <p *ngIf="a.submitted" appsubmitted>{{ a.name }} was submitted.</p>
           <p *ngIf="!a.submitted" appNonsubmitted>
             {{ a.name }}, Has not been submitted.
@@ -32,4 +18,4 @@
       </a>
     </nav>
   </mat-list>
-</ng-template>
+</div>
